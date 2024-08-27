@@ -40,9 +40,42 @@ body.night-mode #display {
     background-color: #555; /* Asettaa näytön taustaväriksi tumman harmaan yönrežiimissä */
 }
 
-/* Painikkeen tyyli */
+/* Laskimen tyylit */
+.calculator {
+    position: relative; /* Asettaa laskimen sijainnin suhteelliseksi, jotta teemanvaihtopainike voidaan sijoittaa absoluuttisesti */
+    width: 320px; /* Määrittää laskimen leveydeksi 320 pikseliä */
+    padding: 20px; /* Lisää 20 pikselin sisäiset marginaalit laskimen ympärille */
+    background-color: white; /* Asettaa laskimen taustaväriksi valkoisen */
+    border-radius: 10px; /* Pyöristää laskimen kulmat 10 pikselin verran */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Lisää laskimen ympärille varjon, joka on hieman läpinäkyvä (10% läpinäkyvyys, väriltään musta) */
+}
+
+h1 {
+    text-align: center; /* Keskittää otsikon tekstin vaakasuunnassa */
+    margin-bottom: 20px; /* Lisää 20 pikselin marginaalin otsikon alapuolelle */
+}
+
+#display {
+    width: 100%; /* Asettaa laskimen näytön leveydelle 100% käytettävissä olevasta tilasta (laskimen leveys) */
+    height: 50px; /* Määrittää näytön korkeudeksi 50px */
+    background-color: #e0e0e0; /* Asettaa näytön taustaväriksi vaalean harmaan */
+    text-align: right; /* Kohdistaa tekstin oikealle */
+    padding: 4px; /* Lisää 4px sisämarginaalin näytön sisälle */
+    font-size: 1.5em; /* Asettaa tekstin kooksi 1.5em (suhteessa nykyiseen fonttikokoon) */
+    margin-bottom: 20px; /* Lisää 20 pikselin marginaalin näytön alapuolelle */
+    border-radius: 5px; /* Pyöristää näytön kulmat 5 pikselin verran */
+    overflow-x: auto; /* Lisää vaakasuuntainen vieritys, jos teksti ei mahdu näyttöön */
+}
+
+/* Painikkeiden tyylit */
+.buttons {
+    display: grid; /* Määrittää elementin käyttävän Grid-asettelua */
+    grid-template-columns: repeat(4, 1fr); /* Luo ruudukon, jossa on neljä yhtä leveää saraketta */
+    gap: 10px; /* Asettaa 10 pikselin välin ruudukon solujen (painikkeiden) väliin */
+}
+
 button {
-    width: 100%; /* Asettaa painikkeen leveyden täyttämään koko ruudukkosolun leveyden */
+    /*width: 100%;*/ /* Asettaa painikkeen leveyden täyttämään koko ruudukkosolun leveyden */
     padding: 20px; /* Lisää 20 pikselin sisämarginaalin painikkeen sisälle */
     font-size: 1.2em; /* Asettaa tekstin kooksi 1.2em (suhteessa nykyiseen fonttikokoon) */
     border: none; /* Poistaa painikkeiden reunat */
@@ -52,70 +85,17 @@ button {
     transition: background-color 0.3s; /* Lisää pehmeän siirtymän painikkeen taustavärille hover-tilassa */
 }
 
-/* Painikkeen hover-tila, kun hiiri on painikkeen päällä */
 button:hover {
     background-color: #d0d0d0; /* Muuttaa painikkeen taustaväriä tummemmaksi hover-tilassa */
 }
 
-/* Erityistyylit teeman vaihtopainikkeelle */
+/* Teemanvaihtopainikkeen tyylit */
 button#theme-toggle {
-    font-size: 1.5em; /* Asettaa teeman vaihtopainikkeen tekstikooksi 1.5em */
+    position: absolute; /* Sijoittaa painikkeen absoluuttisesti laskimen sisälle */
+    bottom: 10px; /* Asettaa painikkeen 10 pikselin etäisyydelle laskimen alareunasta */
+    right: 10px; /* Asettaa painikkeen 10 pikselin etäisyydelle laskimen oikeasta reunasta */
+    font-size: 1.5em; /* Asettaa teemanvaihtopainikkeen tekstikooksi 1.5em */
     background-color: transparent; /* Asettaa taustaväriksi läpinäkyvän */
     border: none; /* Poistaa painikkeen reunat */
     color: inherit; /* Käyttää nykyistä tekstiväriä */
-}
-
-body {
-    font-family: Arial, sans-serif;
-    display: flex; /*Määrittää body-elementin käyttävän Flexbox-asettelua.*/
-    justify-content: center; /*Keskitys vaakasuunnassa.*/
-    align-items: center; /*Keskitys pystysuunnassa.*/
-    height: 100vh; /*Asettaa body-elementin korkeudeksi 100% näkymäkorkeudesta (viewport height), eli se täyttää koko ikkunan korkeuden.*/
-    margin: 0; /*Poistaa oletusmarginaalit body-elementiltä.*/
-    background-color: #f4f4f4; /*Asettaa sivun taustaväriksi vaalean harmaan.*/
-}
-
-.calculator {
-    width: 320px; /*Määrittää laskimen leveydeksi 320 pikseliä.*/
-    padding: 20px; /*Lisää 20 pikselin sisäiset marginaalit laskimen ympärille.*/
-    background-color: white; /*Asettaa laskimen taustaväriksi valkoisen.*/
-    border-radius: 10px; /*Pyöristää laskimen kulmat 10 pikselin verran.*/
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /*Lisää laskimen ympärille varjon, joka on hieman läpinäkyvä (10% läpinäkyvyys, väriltään musta).*/
-}
-
-h1 {
-    text-align: center; /*Keskittää otsikon tekstin vaakasuunnassa.*/
-    margin-bottom: 20px; /*Lisää 20 pikselin marginaalin otsikon alapuolelle.*/
-}
-
-#display {
-    width: 100%; /*Asettaa laskimen näytön leveydelle 100% käytettävissä olevasta tilasta (laskimen leveys).*/
-    height: 50px; /*Määrittää näytön korkeudeksi 50px.*/
-    background-color: #e0e0e0; /*Asettaa näytön taustaväriksi vaalean harmaan.*/
-    text-align: right; /*Kohdistaa tekstin oikealle.*/
-    padding: 4px; /*Lisää 4px sisämarginaalin näytön sisälle.*/
-    font-size: 1.5em; /*Asettaa tekstin kooksi 1.5em (suhteessa nykyiseen fonttikokoon)*/
-    margin-bottom: 20px; /*Lisää 20 pikselin marginaalin näytön alapuolelle.*/
-    border-radius: 5px; /*Pyöristää näytön kulmat 5 pikselin verran.*/
-    overflow-x: auto; /*Lisää vaakasuuntainen vieritys, jos teksti ei mahdu näyttöön.*/
-}
-
-.buttons {
-    display: grid; /*Määrittää elementin käyttävän Grid-asettelua.*/
-    grid-template-columns: repeat(4, 1fr); /*Luo ruudukon, jossa on neljä yhtä leveää saraketta.*/
-    gap: 10px; /*Asettaa 10 pikselin välin ruudukon solujen (painikkeiden) väliin.*/
-}
-
-button {
-    width: 100%; /*Asettaa painikkeen leveyden täyttämään koko ruudukkosolun leveyden.*/
-    padding: 20px; /*Lisää 20 pikselin sisämarginaalin painikkeen sisälle.*/
-    font-size: 1.2em; /*Asettaa tekstin kooksi 1.2em (suhteessa nykyiseen fonttikokoon).*/
-    border: none; /*Poistaa painikkeiden reunat.*/
-    border-radius: 5px; /*Pyöristää painikkeiden kulmat 5 pikselin verran.*/
-    cursor: pointer; /*Muuttaa hiiren osoittimen osoittamaan käden kuvaa painikkeen päälle, joka osoittaa, että painike on klikattava.*/
-    background-color: #f0f0f0; /*Asettaa painikkeen taustaväriksi vaalean harmaan.*/
-}
-
-button:hover {
-    background-color: #d0d0d0; /*Muuttaa painikkeen taustaväriä, kun hiiri on painikkeen päällä (hover-tila). Parantaa käyttökokemusta.*/
 }
